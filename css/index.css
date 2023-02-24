@@ -1,0 +1,60 @@
+body{
+    position: relative;
+}
+
+/* ScrollBar styles */
+::-webkit-scrollbar {
+    width: 10px;
+    cursor: pointer;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background:cyan;
+} 
+
+#z_index {
+    z-index: 9 !important;
+} 
+.alerts{
+    display: flex;
+    justify-content: end;
+}
+
+.alert_wrapper{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    /* padding-right: 20px; */
+}
+
+.aler{
+    transition: all 0.5s ease;
+    /* transform: translateX(100%); */
+    transform: translateX(-40px);
+}
+
+.edit_btn {
+    border-radius: 8px;
+}
+.delete_btn{
+    color: white !important;
+    background-color: red;
+    border-radius: 8px;
+}
+.table.dataTable {
+    margin-top: 0px !important;
+}
+.table_head {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-top: 45px;
+}
+.thead_fixed {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    z-index: 1;
+}
