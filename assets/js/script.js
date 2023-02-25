@@ -368,7 +368,7 @@
     });
     
     feather.replace();
-    $("body").append(right_side_views);
+    $("body").append('right_side_views');
     $('.open-layout').on("click", function(s) {
         s.preventDefault();
         $('.sidebar-layout').addClass('show-layout');

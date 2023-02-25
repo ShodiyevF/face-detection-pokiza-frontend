@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
     <title>FACE ID - Filiallar</title>
-    
-    <link rel="shortcut icon" href="assets/img/favicon.png">
-    
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
-    
-    <link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
-    
-    <link rel="stylesheet" href="assets/plugins/datatables/datatables.min.css">
-    
-    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
-    
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="css/branches.css">
-    <link rel="stylesheet" href="css/index.css">
-    
-    <style>
-        .display_none.display_none.display_none{
-            display: none;
-        }
-        
-        .no-before.no-before.no-before::before{
-            display: none;
-        }
 
-        .no-after.no-after.no-after::after{
-            display: none;
-        }
+    <link rel="shortcut icon" href="assets/img/favicon.png" />
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+
+    <link
+      rel="stylesheet"
+      href="assets/plugins/fontawesome/css/fontawesome.min.css"
+    />
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css" />
+
+    <link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css" />
+
+    <link
+      rel="stylesheet"
+      href="assets/plugins/datatables/datatables.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="css/branches.css" />
+    <link rel="stylesheet" href="css/index.css" />
+
+    <style>
+      .display_none.display_none.display_none {
+        display: none;
+      }
+
+      .no-before.no-before.no-before::before {
+        display: none;
+      }
+
+      .no-after.no-after.no-after::after {
+        display: none;
+      }
     </style>
-    
-</head>
-<body>
-    
+  </head>
+  <body>
     <div class="main-wrapper">
-        
-        <div class="header header-one">
-            
-            <div class="header-left header-left-one">
-                <!-- <a href="index.html" class="logo">
+      <div class="header header-one">
+        <div class="header-left header-left-one">
+          <!-- <a href="index.html" class="logo">
                     <img src="assets/img/logo.png" alt="Logo">
                 </a>
                 <a href="index.html" class="white-logo">
@@ -53,201 +58,305 @@
                 <a href="index.html" class="logo logo-small">
                     <img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
                 </a> -->
-            </div>
-            
-            
-            <a href="javascript:void(0);" id="toggle_btn">
-                <i class="fas fa-bars"></i>
+        </div>
+
+        <a href="javascript:void(0);" id="toggle_btn">
+          <i class="fas fa-bars"></i>
+        </a>
+
+        <div class="top-nav-search">
+          <form>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Bu yerda qidiring"
+            />
+            <button class="btn" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+
+        <a class="mobile_btn" id="mobile_btn">
+          <i class="fas fa-bars"></i>
+        </a>
+
+        <ul class="nav nav-tabs user-menu">
+          <li class="nav-item dropdown has-arrow main-drop">
+            <a
+              href="#"
+              class="dropdown-toggle nav-link"
+              data-bs-toggle="dropdown"
+            >
+              <span class="user-img">
+                <img src="assets/img/profiles/avatar-01.jpg" alt="" />
+                <span class="status online"></span>
+              </span>
+              <span>Admin</span>
             </a>
-            
-            
-            <div class="top-nav-search">
-                <form>
-                    <input type="text" class="form-control" placeholder="Bu yerda qidiring">
-                    <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-                </form>
+            <div class="dropdown-menu" id="z_index">
+              <a class="dropdown-item" href="profile.html"
+                ><i data-feather="user" class="me-1"></i> Profil</a
+              >
+              <a class="dropdown-item" href="settings.html"
+                ><i data-feather="settings" class="me-1"></i> Sozlamalar</a
+              >
+              <a class="dropdown-item" href="/login.html"
+                ><i data-feather="log-out" class="me-1"></i> Chiqish</a
+              >
             </div>
-            
-            
-            <a class="mobile_btn" id="mobile_btn">
-                <i class="fas fa-bars"></i>
-            </a>
-            
-            
-            <ul class="nav nav-tabs user-menu">
-                <li class="nav-item dropdown has-arrow main-drop">
-                    <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-                        <span class="user-img">
-                            <img src="assets/img/profiles/avatar-01.jpg" alt="">
-                            <span class="status online"></span>
-                        </span>
-                        <span>Admin</span>
-                    </a>
-                    <div class="dropdown-menu" id="z_index">
-                        <a class="dropdown-item" href="profile.html"><i data-feather="user" class="me-1"></i> Profil</a>
-                        <a class="dropdown-item" href="settings.html"><i data-feather="settings" class="me-1"></i> Sozlamalar</a>
-                        <a class="dropdown-item" href="/api/logout"><i data-feather="log-out" class="me-1"></i> Chiqish</a>
-                    </div>
-                </li>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-inner slimscroll">
+          <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+              <li class="">
+                <a href="/"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-home"
+                  >
+                    <path
+                      d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    ></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                  <span>Asosiy menu</span></a
+                >
+              </li>
+              <li class="active">
+                <a href="/branches.html"
+                  ><i data-feather="git-branch"></i> <span>Filiallar</span></a
+                >
+              </li>
+              <li class="">
+                <a href="/users.html"
+                  ><i data-feather="users"></i> <span>Xodimlar</span></a
+                >
+              </li>
             </ul>
-            
+          </div>
         </div>
+      </div>
 
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-inner slimscroll">
-                <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
-                        <li class="">
-                            <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> <span>Asosiy menu</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="/branches"><i data-feather="git-branch"></i> <span>Filiallar</span></a>
-                        </li>
-                        <li class="">
-                            <a href="/users"><i data-feather="users"></i> <span>Xodimlar</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-            
-        <div class="page-wrapper">
-            <div class="content container-fluid">
-                
-                <div class="card invoices-tabs-card">
-                    <div class="card-body card-body pt-0 pb-0">
-                        <div class="invoices-main-tabs border-0 pb-0">
-                            <div class="row align-items-center">
-                                <div class="col-lg-12 col-md-12">
-                                    <div class="invoices-settings-btn invoices-settings-btn-one">
-                                        <a href="#" class="btn add_branch_btn" data-bs-toggle="modal" data-bs-target="#add_items">
-                                            <i data-feather="plus-circle"></i> Yangi filial qo'shish
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+      <div class="page-wrapper">
+        <div class="content container-fluid">
+          <div class="card invoices-tabs-card">
+            <div class="card-body card-body pt-0 pb-0">
+              <div class="invoices-main-tabs border-0 pb-0">
+                <div class="row align-items-center">
+                  <div class="col-lg-12 col-md-12">
+                    <div
+                      class="invoices-settings-btn invoices-settings-btn-one"
+                    >
+                      <a
+                        href="#"
+                        class="btn add_branch_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#add_items"
+                      >
+                        <i data-feather="plus-circle"></i> Yangi filial qo'shish
+                      </a>
                     </div>
+                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
 
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card card-table">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-stripped table-hover datatable">
+                      <thead class="thead-light thead_fixed">
+                        <tr>
+                          <th>ID</th>
+                          <th>Nomi</th>
+                          <th>Sana</th>
+                          <th class="text-end">Tahrirlash</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal custom-modal fade bank-details"
+        id="add_items"
+        role="dialog"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="form-header mb-0">
+                <h4 class="mb-0">Filial</h4>
+              </div>
+              <button
+                type="button"
+                class="close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="bank-inner-details">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card card-table">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-stripped table-hover datatable">
-                                        <thead class="thead-light thead_fixed">
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Nomi</th>
-                                                <th>Sana</th>
-                                                <th class="text-end">Tahrirlash</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody></tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                  <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                      <label>Filial nomini kiriting</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-addbranch"
+                        placeholder="Ps: Nasiya savdo 10"
+                      />
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-        
-        <div class="modal custom-modal fade bank-details" id="add_items" role="dialog">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <div class="form-header mb-0">
-                            <h4 class="mb-0">Filial</h4>
-                        </div>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="bank-inner-details">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>Filial nomini kiriting</label>
-                                        <input type="text" class="form-control form-control-addbranch" placeholder="Ps: Nasiya savdo 10">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="bank-details-btn">
-                            <a href="javascript:void(0);" data-bs-dismiss="modal" class="btn bank-cancel-btn me-2">Bekor qilish</a>
-                            <a href="javascript:void(0);" class="btn bank-save-btn">Saqlash</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="modal-footer">
+              <div class="bank-details-btn">
+                <a
+                  href="javascript:void(0);"
+                  data-bs-dismiss="modal"
+                  class="btn bank-cancel-btn me-2"
+                  >Bekor qilish</a
+                >
+                <a href="javascript:void(0);" class="btn bank-save-btn"
+                  >Saqlash</a
+                >
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    
-    <div class="display_none modal custom-modal fade" id="delete_paid" role="dialog">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="form-header">
-                        <h3>Filialni ochirish ?</h3>
-                        <p><span class="delete-branch-name"></span> filialini o'chirishni istaysizmi ?</p>
-                    </div>
-                    <div class="modal-btn delete-action">
-                        <div class="row">
-                            <div class="col-6">
-                                <a href="javascript:void(0);" class="btn btn-outline-primary paid-continue-btn">O'chirish</a>
-                            </div>
-                            <div class="col-6">
-                                <a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn">Bekor qilish</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <div class="display_none swal2-container swal2-center swal2-backdrop-show" style="overflow-y: auto;">
-        <div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-show" tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" style="display: flex;">
-            <div class="swal2-header">
-                <h2 class="swal2-title" id="swal2-title" style="display: flex;">Good job!</h2>
+    <div
+      class="display_none modal custom-modal fade"
+      id="delete_paid"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="form-header">
+              <h3>Filialni ochirish ?</h3>
+              <p>
+                <span class="delete-branch-name"></span> filialini o'chirishni
+                istaysizmi ?
+              </p>
             </div>
-            <div class="swal2-content">
-                <div id="swal2-content" class="swal2-html-container" style="display: block;">You clicked the button!</div>
+            <div class="modal-btn delete-action">
+              <div class="row">
+                <div class="col-6">
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-outline-primary paid-continue-btn"
+                    >O'chirish</a
+                  >
+                </div>
+                <div class="col-6">
+                  <a
+                    href="javascript:void(0);"
+                    data-bs-dismiss="modal"
+                    class="btn btn-primary paid-cancel-btn"
+                    >Bekor qilish</a
+                  >
+                </div>
+              </div>
             </div>
-            <div class="swal2-actions">
-                <button type="button" class="swal2-confirm btn btn-primary" style="display: inline-block;" aria-label="">OK</button>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-    
+
+    <div
+      class="display_none swal2-container swal2-center swal2-backdrop-show"
+      style="overflow-y: auto"
+    >
+      <div
+        aria-labelledby="swal2-title"
+        aria-describedby="swal2-content"
+        class="swal2-popup swal2-modal swal2-show"
+        tabindex="-1"
+        role="dialog"
+        aria-live="assertive"
+        aria-modal="true"
+        style="display: flex"
+      >
+        <div class="swal2-header">
+          <h2 class="swal2-title" id="swal2-title" style="display: flex">
+            Good job!
+          </h2>
+        </div>
+        <div class="swal2-content">
+          <div
+            id="swal2-content"
+            class="swal2-html-container"
+            style="display: block"
+          >
+            You clicked the button!
+          </div>
+        </div>
+        <div class="swal2-actions">
+          <button
+            type="button"
+            class="swal2-confirm btn btn-primary"
+            style="display: inline-block"
+            aria-label=""
+          >
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/tokenvalidation.js"></script>
+
     <script src="assets/js/jquery-3.6.0.min.js"></script>
-    
+
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    
+
     <script src="assets/js/feather.min.js"></script>
-    
+
     <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-    
+
     <script src="assets/plugins/select2/js/select2.min.js"></script>
-    
+
     <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="assets/plugins/datatables/datatables.min.js"></script>
-    
+
     <script src="assets/plugins/moment/moment.min.js"></script>
     <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-    
+
     <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
     <script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
-    
+
     <script src="assets/js/script.js"></script>
 
-    <script src="js/branches.js"></script>
+    <script type="module" src="js/branches.js"></script>
     <script type="module" src="js/index.js"></script>
-
-</body>
+  </body>
 </html>
