@@ -1,5 +1,3 @@
-const domain = 'http://localhost:3001'
+const domain = 'http://192.168.1.84:3001'
 
-export {
-    domain
-}
+export { domain }

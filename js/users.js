@@ -1,3 +1,7 @@
+import { domain } from "./DOMAIN.js"
+console.log(domain)
+
+
 const remove_rows = document.querySelectorAll('.row')
 const remove_dataTables_length = document.querySelector('.dataTables_length')
 const remove_removeSort1 = document.querySelector('.sorting_asc')
@@ -101,7 +105,7 @@ styles()
 function setDefaultValues(){
     
     async function appendBranchesToSelect() {
-        const res = await fetch('/api/branch')
+        const res = await fetch(domain + '/api/branch')
         const data = await res.json()
         for (const i of data) {
             const option = document.createElement('option')
@@ -167,7 +171,7 @@ userAddBtn.onclick = () => {
 // CRUD USER
 
 async function users(){
-    const res = await fetch('/api/users')
+    const res = await fetch(domain + '/api/users')
     const data = await res.json()
     return data
 }
@@ -302,7 +306,7 @@ async function setUser(){
             userPasswordInput.value = ''
             userImgInput.value = ''
             
-            const res = await fetch('/api/users',{
+            const res = await fetch(domain + '/api/users',{
                 method: 'POST',
                 body: formData
             })
@@ -423,7 +427,7 @@ async function updateUser(){
                 userPasswordInput.value = ''
                 userImgInput.value = ''
                 
-                const res = await fetch(`/api/users/${e.target.dataset.id}`,{
+                const res = await fetch(domain + `/api/users/${e.target.dataset.id}`,{
                     method: 'PATCH',
                     body: formData
                 })
@@ -448,7 +452,7 @@ async function deleteUser(){
     for (const i of user) {
         i.onclick = async (e) => {
             userDeleteBtn.onclick = async (i) => {
-                const res = await fetch(`/api/users/${e.target.dataset.id}`,{
+                const res = await fetch(domain + `/api/users/${e.target.dataset.id}`,{
                     method: 'DELETE'
                 })
                 const data = await res.json()

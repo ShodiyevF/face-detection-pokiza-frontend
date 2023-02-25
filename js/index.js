@@ -1,4 +1,5 @@
 import { alert } from "../utils/alert.js"
+import {domain} from '../js/DOMAIN.js'
 
 const form = document.querySelector('.form')
 const input_login = document.querySelector('#inputLogin')
@@ -15,7 +16,7 @@ if (form) {
         } else if(!input_password.value){
             input_password.style.borderColor = 'red'
         } else {
-            const response = await fetch('http://localhost:3001/api/login', {
+            const response = await fetch(domain + '/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
