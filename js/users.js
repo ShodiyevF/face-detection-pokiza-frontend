@@ -101,12 +101,12 @@ styles()
 
 function setDefaultValues() {
   async function appendBranchesToSelect() {
-    const res = await fetch(domain + '/api/branch')
+    const res = await fetch(domain + '/api/branches')
     const data = await res.json()
     for (const i of data) {
       const option = document.createElement('option')
-      option.value = i.id
-      option.textContent = i.branchName
+      option.value = i.branch_id
+      option.textContent = i.branch_name
       userMainbranchSelect.appendChild(option)
     }
   }
@@ -125,7 +125,7 @@ function getActiveBranches() {
   )
   const userAccessbranchesSelectValue = []
   for (const id of filteredActiveBranches) {
-    userAccessbranchesSelectValue.push(id.dataset.id)
+    userAccessbranchesSelectValue.push(id.dataset.branch_id)
   }
 
   let returns = {
@@ -200,7 +200,7 @@ async function getUsers() {
     role_badge.classList.add(
       'badge',
       'badge-pill',
-      i.email ? 'bg-success-light' : 'bg-danger-light',
+      i.user_email ? 'bg-success-light' : 'bg-danger-light',
     )
     employerEdit.classList.add(
       'btn',
@@ -223,24 +223,24 @@ async function getUsers() {
     editWrapper.classList.add('text-end')
 
     avatarImageLink.href = '/user'
-    avatarImageLink.dataset.user_id = i.id
-    avatarImage.src = `/api/users/img/${i.id}`
+    avatarImageLink.dataset.user_id = i.user_id
+    avatarImage.src = `/api/users/img/${i.user_id}`
     avatarName.href = '/user'
-    avatarName.dataset.user_id = i.id
-    employerEdit.setAttribute('data-id', i.id)
+    avatarName.dataset.user_id = i.user_id
+    employerEdit.setAttribute('data-id', i.user_id)
     employerEdit.setAttribute('data-bs-toggle', 'modal')
     employerEdit.setAttribute('data-bs-target', '#add_items')
-    employerDelete.setAttribute('data-id', i.id)
-    employerDelete.setAttribute('data-name', i.firstName)
+    employerDelete.setAttribute('data-id', i.user_id)
+    employerDelete.setAttribute('data-name', i.user_firstname)
     employerDelete.setAttribute('data-bs-toggle', 'modal')
     employerDelete.setAttribute('data-bs-target', '#delete_paid')
 
-    avatarName.textContent = i.firstName + ' '
+    avatarName.textContent = i.user_firstname + ' '
     avatarName.appendChild(avatarInnerName)
-    avatarInnerName.textContent = i.lastName
-    email.textContent = i.email ? i.email : 'email yoq !'
+    avatarInnerName.textContent = i.user_lastname
+    email.textContent = i.user_email ? i.user_email : 'email yoq !'
     date.textContent = i.createdAt.split('T')[0]
-    role_badge.textContent = i.email ? 'admin' : 'admin emas'
+    role_badge.textContent = i.user_email ? 'admin' : 'admin emas'
     employerEdit.textContent = 'Tahrirlash'
     employerDelete.textContent = `O'chirish`
 
