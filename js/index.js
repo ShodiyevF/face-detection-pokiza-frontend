@@ -22,14 +22,14 @@ if (form) {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    email: inputLogin.value.toString(),
-                    password: inputPassword.value.toString(),
+                    user_email: input_login.value.toString(),
+                    user_password: input_password.value.toString(),
                 }),
             })
             const data = await response.json()
             console.log(data)
             if (data.status == 200) {
-                localStorage.setItem('token', data.access_token)
+                localStorage.setItem('token', data.token)
                 window.location = '/'
             } else {
                 if (alert_wrapper.childElementCount <= 2) {

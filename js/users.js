@@ -42,14 +42,14 @@ const userDeleteName = document.querySelector('#user_delete_name')
 // OTHER FUNCTIONS
 
 function alertClose(action) {
-  alertModelCloseBtn.onclick = () => {
+  alertModelCloseBtn.addEventListener('click', () => {
     if (action == 200) {
       alertModal.classList.add('display_none')
       location.reload()
     } else {
       alertModal.classList.add('display_none')
     }
-  }
+  })
 }
 
 function readImage(input) {
@@ -101,12 +101,12 @@ styles()
 
 function setDefaultValues() {
   async function appendBranchesToSelect() {
-    const res = await fetch(domain + '/api/branch')
+    const res = await fetch(domain + '/api/branches')
     const data = await res.json()
     for (const i of data) {
       const option = document.createElement('option')
-      option.value = i.id
-      option.textContent = i.branchName
+      option.value = i.branch_id
+      option.textContent = i.branch_name
       userMainbranchSelect.appendChild(option)
     }
   }
@@ -125,7 +125,7 @@ function getActiveBranches() {
   )
   const userAccessbranchesSelectValue = []
   for (const id of filteredActiveBranches) {
-    userAccessbranchesSelectValue.push(id.dataset.id)
+    userAccessbranchesSelectValue.push(id.dataset.branch_id)
   }
 
   let returns = {
@@ -146,7 +146,7 @@ function getActiveBranches() {
 
 // EVENT LISTENNERS
 
-userAddBtn.onclick = () => {
+userAddBtn.addEventListener('click', () => {
   const branches = document.querySelectorAll('.child')
   const activeBranchElement = []
   for (const i of branches) {
@@ -165,7 +165,7 @@ userAddBtn.onclick = () => {
   userEmailInput.value = ''
   userPasswordInput.value = ''
   userImgInput.value = ''
-}
+})
 
 // CRUD USER
 
@@ -200,7 +200,7 @@ async function getUsers() {
     role_badge.classList.add(
       'badge',
       'badge-pill',
-      i.email ? 'bg-success-light' : 'bg-danger-light',
+      i.user_email ? 'bg-success-light' : 'bg-danger-light',
     )
     employerEdit.classList.add(
       'btn',
@@ -223,24 +223,24 @@ async function getUsers() {
     editWrapper.classList.add('text-end')
 
     avatarImageLink.href = '/user'
-    avatarImageLink.dataset.user_id = i.id
-    avatarImage.src = `/api/users/img/${i.id}`
+    avatarImageLink.dataset.user_id = i.user_id
+    avatarImage.src = `/api/users/img/${i.user_id}`
     avatarName.href = '/user'
-    avatarName.dataset.user_id = i.id
-    employerEdit.setAttribute('data-id', i.id)
+    avatarName.dataset.user_id = i.user_id
+    employerEdit.setAttribute('data-id', i.user_id)
     employerEdit.setAttribute('data-bs-toggle', 'modal')
     employerEdit.setAttribute('data-bs-target', '#add_items')
-    employerDelete.setAttribute('data-id', i.id)
-    employerDelete.setAttribute('data-name', i.firstName)
+    employerDelete.setAttribute('data-id', i.user_id)
+    employerDelete.setAttribute('data-name', i.user_firstname)
     employerDelete.setAttribute('data-bs-toggle', 'modal')
     employerDelete.setAttribute('data-bs-target', '#delete_paid')
 
-    avatarName.textContent = i.firstName + ' '
+    avatarName.textContent = i.user_firstname + ' '
     avatarName.appendChild(avatarInnerName)
-    avatarInnerName.textContent = i.lastName
-    email.textContent = i.email ? i.email : 'email yoq !'
+    avatarInnerName.textContent = i.user_lastname
+    email.textContent = i.user_email ? i.user_email : 'email yoq !'
     date.textContent = i.createdAt.split('T')[0]
-    role_badge.textContent = i.email ? 'admin' : 'admin emas'
+    role_badge.textContent = i.user_email ? 'admin' : 'admin emas'
     employerEdit.textContent = 'Tahrirlash'
     employerDelete.textContent = `O'chirish`
 
@@ -292,7 +292,7 @@ async function setUser() {
       userLastnameInput.style.borderColor = 'red'
     } else if (!userMainbranchSelect.value) {
       userMainbranchSelect.style.borderColor = 'red'
-    } else if (!userAccessbranchesSelecta.length) {
+    } else if (!userAccessbranchesSelect.length) {
       userAccessbranchesSelect.style.borderColor = 'red'
     } else if (userIsadminSelect.value == 2 && !resa) {
       userEmailInput.style.borderColor = 'red'
@@ -348,7 +348,7 @@ async function setUser() {
 async function updateUser() {
   const user = document.querySelectorAll('.user_update_btn')
   for (const i of user) {
-    i.onclick = async (e) => {
+    i.addEventListener('click', async (e) => {
       const branchesa = document.querySelectorAll('.child')
       const activeBranchElement = []
       for (const i of branchesa) {
@@ -384,7 +384,7 @@ async function updateUser() {
       userPasswordInput.value = ''
       userImgInput.value = ''
 
-      userSaveBtn.onclick = async (i) => {
+      userSaveBtn.addEventListener('click', async (i) => {
         console.log(i, 'EDIT')
         const allowedBranches = getActiveBranches()
         userFirstnameInput.style.borderColor = '#dee2e6'
@@ -467,16 +467,16 @@ async function updateUser() {
           alertModal.classList.remove('display_none')
           alertClose(200)
         }
-      }
-    }
+      }) 
+    })
   }
 }
 
 async function deleteUser() {
   const user = document.querySelectorAll('.user_delete_btn')
   for (const i of user) {
-    i.onclick = async (e) => {
-      userDeleteBtn.onclick = async (i) => {
+    i.addEventListener('click', async (e) => {
+      userDeleteBtn.addEventListener('click', async (i) => {
         const res = await fetch(domain + `/api/users/${e.target.dataset.id}`, {
           method: 'DELETE',
         })
@@ -487,7 +487,7 @@ async function deleteUser() {
           alertModal.classList.remove('display_none')
           alertClose(200)
         }
-      }
-    }
+      }) 
+    })
   }
 }
