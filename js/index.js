@@ -22,8 +22,8 @@ if (form) {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    email: inputLogin.value.toString(),
-                    password: inputPassword.value.toString(),
+                    email: input_login.value.toString(),
+                    password: input_password.value.toString(),
                 }),
             })
             const data = await response.json()

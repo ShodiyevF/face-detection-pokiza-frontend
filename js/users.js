@@ -42,14 +42,14 @@ const userDeleteName = document.querySelector('#user_delete_name')
 // OTHER FUNCTIONS
 
 function alertClose(action) {
-  alertModelCloseBtn.onclick = () => {
+  alertModelCloseBtn.addEventListener('click', () => {
     if (action == 200) {
       alertModal.classList.add('display_none')
       location.reload()
     } else {
       alertModal.classList.add('display_none')
     }
-  }
+  })
 }
 
 function readImage(input) {
@@ -146,7 +146,7 @@ function getActiveBranches() {
 
 // EVENT LISTENNERS
 
-userAddBtn.onclick = () => {
+userAddBtn.addEventListener('click', () => {
   const branches = document.querySelectorAll('.child')
   const activeBranchElement = []
   for (const i of branches) {
@@ -165,7 +165,7 @@ userAddBtn.onclick = () => {
   userEmailInput.value = ''
   userPasswordInput.value = ''
   userImgInput.value = ''
-}
+})
 
 // CRUD USER
 
@@ -292,7 +292,7 @@ async function setUser() {
       userLastnameInput.style.borderColor = 'red'
     } else if (!userMainbranchSelect.value) {
       userMainbranchSelect.style.borderColor = 'red'
-    } else if (!userAccessbranchesSelecta.length) {
+    } else if (!userAccessbranchesSelect.length) {
       userAccessbranchesSelect.style.borderColor = 'red'
     } else if (userIsadminSelect.value == 2 && !resa) {
       userEmailInput.style.borderColor = 'red'
@@ -348,7 +348,7 @@ async function setUser() {
 async function updateUser() {
   const user = document.querySelectorAll('.user_update_btn')
   for (const i of user) {
-    i.onclick = async (e) => {
+    i.addEventListener('click', async (e) => {
       const branchesa = document.querySelectorAll('.child')
       const activeBranchElement = []
       for (const i of branchesa) {
@@ -384,7 +384,7 @@ async function updateUser() {
       userPasswordInput.value = ''
       userImgInput.value = ''
 
-      userSaveBtn.onclick = async (i) => {
+      userSaveBtn.addEventListener('click', async (i) => {
         console.log(i, 'EDIT')
         const allowedBranches = getActiveBranches()
         userFirstnameInput.style.borderColor = '#dee2e6'
@@ -467,16 +467,16 @@ async function updateUser() {
           alertModal.classList.remove('display_none')
           alertClose(200)
         }
-      }
-    }
+      }) 
+    })
   }
 }
 
 async function deleteUser() {
   const user = document.querySelectorAll('.user_delete_btn')
   for (const i of user) {
-    i.onclick = async (e) => {
-      userDeleteBtn.onclick = async (i) => {
+    i.addEventListener('click', async (e) => {
+      userDeleteBtn.addEventListener('click', async (i) => {
         const res = await fetch(domain + `/api/users/${e.target.dataset.id}`, {
           method: 'DELETE',
         })
@@ -487,7 +487,7 @@ async function deleteUser() {
           alertModal.classList.remove('display_none')
           alertClose(200)
         }
-      }
-    }
+      }) 
+    })
   }
 }
